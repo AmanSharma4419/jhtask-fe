@@ -10,12 +10,15 @@ import {
 } from "./types";
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const PROXY_URL = process.env.REACT_APP_API_PROXY_URL;
 
 export const getAllBlogs = () => {
   return async (dispatch) => {
     dispatch({ type: GET_BLOGS_REQUEST });
     try {
-      const response = await axios.get(`${BASE_URL}/api/blog/blogs`);
+      const response = await axios.get(
+        PROXY_URL + `${BASE_URL}/api/blog/blogs`
+      );
       if (response) {
         return dispatch({
           type: GET_BLOGS_SUCCESS,
@@ -33,7 +36,7 @@ export const writeBlog = (blog) => {
     dispatch({ type: WRITE_BLOG_REQUEST });
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/blog/write-blog`,
+        PROXY_URL + `${BASE_URL}/api/blog/write-blog`,
         blog
       );
       if (response) {
