@@ -88,7 +88,7 @@ const Blogs = () => {
                 </div>
                 <div>
                   <img
-                    src={`http://localhost:7000/${blog.blogImage}`}
+                    src={`${process.env.REACT_APP_API_BASE_URL}/${blog.blogImage}`}
                     className="w-[250px] h-[150px] rounded-lg"
                     alt=""
                   />
